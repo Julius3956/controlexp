@@ -14,17 +14,12 @@ import com.segway.robot.sdk.locomotion.head.Head;
 import com.segway.robot.sdk.locomotion.sbv.Base;
 import com.segway.robot.sdk.locomotion.sbv.BasePose;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
     private static final String TAG = "RobotControl";
     private Button forward_button;
-    private Base mBase;
-    private Pose2D mPose2d;
-    private Head mHead;
     private boolean pressed = false;
-    private boolean isBind = false;
-    private float theta = (float)Math.PI;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -69,30 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
     private void init(){
-        mHead = Head.getInstance();
-        mHead.bindService(getApplicationContext(), new ServiceBinder.BindStateListener() {
-            @Override
-            public void onBind() {
-                Log.d(TAG, "onBind: Head");
-            }
 
-            @Override
-            public void onUnbind(String reason) {
-                Log.d(TAG, "onUnbind: Head");
-            }
-        });
-        mBase = Base.getInstance();
-        mBase.bindService(getApplicationContext(), new ServiceBinder.BindStateListener() {
-            @Override
-            public void onBind() {
-                Log.d(TAG, "onBind: base");
-            }
-
-            @Override
-            public void onUnbind(String reason) {
-                Log.d(TAG, "onUnbind: base");
-            }
-        });
         forward_button = (Button)findViewById(R.id.forward_button);
         
     }

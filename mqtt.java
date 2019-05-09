@@ -24,7 +24,7 @@ import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
-
+//test
 public class mqtt extends AppCompatActivity {
     public static final String TAG = "MQTT";
     private static final int CONNECTED = 1;
